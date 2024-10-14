@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav
       className={`fixed left-0 z-10 -bottom-4 w-full flex h-[80vh] transition-all duration-1000 ${
         showOverview ? 'translate-y-0' : 'translate-y-[calc(100%-104px)]'
-      } rounded-3xl px-8 bg-white justify-center gap-8 sm:top-0`}
+      } rounded-3xl px-8 bg-white justify-center gap-8`}
     >
       <div className="w-full h-full relative flex justify-center">
         <div
@@ -79,15 +79,26 @@ const Navbar = () => {
       </div>
     </nav>
   ) : (
-    <nav className="fixed left-0 z-10 -bottom-4 w-full flex rounded-3xl pt-8 pb-12 px-8 bg-white justify-center gap-8 sm:top-0">
-      <Link href={'/'}>
+    <nav className="fixed left-0 z-10 -bottom-4 w-full flex rounded-3xl pt-8 pb-12 px-8 bg-white justify-center gap-8">
+      <Link
+        href={'/'}
+        className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+      >
         <FiCompass className="text-accent1 text-2xl cursor-pointer" />
       </Link>
-      <Link href={'/illustrations'}>
+      <Link
+        href={'/illustrations'}
+        className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+      >
         <FaLayerGroup className="text-accent1 text-2xl cursor-pointer" />
       </Link>
-      <LuPenLine className="text-accent1 text-2xl cursor-pointer" />
-      <Link href={'/profile'}>
+      <span className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60">
+        <LuPenLine className="text-accent1 text-2xl cursor-pointer" />
+      </span>
+      <Link
+        href={'/profile'}
+        className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+      >
         <MdPersonOutline className="text-accent1 text-2xl cursor-pointer" />
       </Link>
     </nav>

@@ -6,6 +6,7 @@ import { IllustrationContext } from '../../hooks/useIllustrations';
 import Navbar from '@/components/Navbar';
 import { ActiveIllustrationContext } from '../../hooks/useActiveIllustration';
 import { FavIllustrationContext } from '../../hooks/useFavIllustrations';
+import { useActiveBreakpoints } from '../../hooks/useActiveBreakpoints';
 
 export default function RootLayout({
   children,
@@ -18,6 +19,8 @@ export default function RootLayout({
   );
   const [activeIllustration, setActiveIllustration] =
     useState<IllustrationType | null>(null);
+
+  const { sm } = useActiveBreakpoints();
 
   const { removeFavIllustration, addFavIllustration } = useMemo(() => {
     return {
@@ -68,8 +71,19 @@ export default function RootLayout({
                 addFavIllustration,
               }}
             >
-              <Navbar />
-              {children}
+              {sm ? (
+                <>
+                  <h1 className="text-5xl font-bold">
+                    Please switch to mobile
+                  </h1>
+                  <h2 className="text-4xl font-semibold">(less than 640px)</h2>
+                </>
+              ) : (
+                <>
+                  <Navbar />
+                  {children}
+                </>
+              )}
             </FavIllustrationContext.Provider>
           </ActiveIllustrationContext.Provider>
         </IllustrationContext.Provider>
