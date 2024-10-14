@@ -32,25 +32,30 @@ export default function RootLayout({
 
   const api = useMemo(() => process.env.NEXT_PUBLIC_RIJKSMUSEUM_API_KEY, []);
   useEffect(() => {
-    if (illustrations.length === 0)
-      fetch(`https://www.rijksmuseum.nl/api/en/collection?key=${api}`)
-        .then(data => data.json())
-        .then(data =>
-          setIllustrations(
-            data.artObjects.map((art: IllustrationRawType) => ({
-              id: art.id,
-              objectNumber: art.objectNumber,
-              title: art.title,
-              hasImage: art.hasImage,
-              principalOrFirstMaker: art.principalOrFirstMaker,
-              longTitle: art.longTitle,
-              url: art.webImage.url,
-              headerUrl: art.headerImage.url,
-              width: art.webImage.width,
-              height: art.webImage.height,
-            })) ?? []
-          )
-        );
+    try {
+      if (illustrations.length === 0) {
+        fetch(`https://www.rijksmuseum.nl/api/en/collection?key=${api}`)
+          .then(data => data.json())
+          .then(data =>
+            setIllustrations(
+              data.artObjects.map((art: IllustrationRawType) => ({
+                id: art.id,
+                objectNumber: art.objectNumber,
+                title: art.title,
+                hasImage: art.hasImage,
+                principalOrFirstMaker: art.principalOrFirstMaker,
+                longTitle: art.longTitle,
+                url: art.webImage.url,
+                headerUrl: art.headerImage.url,
+                width: art.webImage.width,
+                height: art.webImage.height,
+              })) ?? []
+            )
+          );
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }, [illustrations]);
 
   const handleChangeIllustration = useCallback(
