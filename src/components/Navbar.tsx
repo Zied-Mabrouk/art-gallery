@@ -11,10 +11,8 @@ const Navbar = () => {
   const coefficientCentimeter = 0.0264583333;
   return activeIllustration ? (
     <nav
-      className={`fixed left-0 z-10 -bottom-4 w-full flex h-[80vh]  ${
-        showOverview
-          ? 'transition-all duration-1000'
-          : 'translate-y-[calc(100%-104px)]'
+      className={`fixed left-0 z-10 -bottom-4 w-full flex h-[80vh] transition-all duration-1000 ${
+        showOverview ? 'translate-y-0' : 'translate-y-[calc(100%-104px)]'
       } rounded-3xl px-8 bg-white justify-center gap-8 sm:top-0`}
     >
       <div className="w-full h-full relative flex justify-center">
@@ -26,37 +24,32 @@ const Navbar = () => {
         </div>
         {showOverview ? (
           <div className="flex flex-col w-full py-8">
-            <span className="font-semibold text-gray-400 tracking-widest mb-2">
+            <span className="font-semibold text-gray-400 italic tracking-widest mb-2">
               Title
             </span>
-            <span className="font-semibold text-black mb-4">
+            <span className="font-semibold text-black mb-5">
               {activeIllustration.title}
             </span>
-            <span className="font-semibold text-gray-400 tracking-widest mb-2">
+            <span className="font-semibold text-gray-400 italic tracking-widest mb-2">
               Artist
             </span>
-            <span className="font-semibold text-black mb-4">
+            <span className="font-semibold text-black mb-5">
               {activeIllustration.principalOrFirstMaker}
             </span>
-            <span className="font-semibold text-gray-400 tracking-widest mb-2">
+            <span className="font-semibold text-gray-400 italic tracking-widest mb-2">
               Size
             </span>
-            <span className="font-semibold text-black mb-4">
+            <span className="font-semibold text-black mb-5">
               {activeIllustration.width}x{activeIllustration.height} px (
               {(activeIllustration.width * coefficientCentimeter).toFixed(1)}x
               {(activeIllustration.height * coefficientCentimeter).toFixed(1)}{' '}
               cm)
             </span>
-            <span className="font-semibold text-gray-400 tracking-widest mb-2">
-              Artist
-            </span>
-            <span className="font-semibold text-black mb-4">
-              {activeIllustration.principalOrFirstMaker}
-            </span>
+
             {activeIllustration.description && (
               <>
                 <div className="w-full bg-gray-500 bg-opacity-10 rounded-lg my-4 h-[2px]"></div>
-                <span className="font-semibold text-gray-400 mb-4 text-justify">
+                <span className="font-semibold text-gray-400 mb-5 text-justify">
                   {activeIllustration.description}
                 </span>
               </>
@@ -64,10 +57,17 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex flex-col w-full py-8">
-            <span className="font-semibold w-16 h-3 bg-gray-400  tracking-widest mb-2 rounded-lg opacity-30 p-[0.5px]"></span>
-            <span className="font-semibold w-32 h-3 bg-black mb-3 rounded-lg opacity-20 p-[0.5px]"></span>
-            <span className="font-semibold w-16 h-3 bg-gray-400  tracking-widest mb-2 rounded-lg opacity-30 p-[0.5px]"></span>
-            <span className="font-semibold w-32 h-3 bg-black mb-3 rounded-lg opacity-20 p-[0.5px]"></span>
+            <span className="font-semibold w-16 h-3 bg-gray-400  tracking-widest mb-2 rounded-md opacity-20 p-[0.5px]"></span>
+            <span className="font-semibold w-20 h-3 bg-gray-800 mb-5 rounded-md opacity-20 p-[0.5px]"></span>
+
+            <span className="font-semibold w-12 h-3 bg-gray-400  tracking-widest mb-2 rounded-lg opacity-20 p-[0.5px]"></span>
+            <span className="font-semibold w-44 h-3 bg-gray-800 mb-5 rounded-lg opacity-20 p-[0.5px]"></span>
+
+            <span className="font-semibold w-20 h-3 bg-gray-400  tracking-widest mb-2 rounded-lg opacity-30 p-[0.5px]"></span>
+            <span className="font-semibold w-32 h-3 bg-gray-800 mb-5 rounded-lg opacity-20 p-[0.5px]"></span>
+
+            <span className="font-semibold w-24 h-3 bg-gray-400  tracking-widest mb-2 rounded-lg opacity-30 p-[0.5px]"></span>
+            <span className="font-semibold w-40 h-3 bg-gray-800 mb-5 rounded-lg opacity-20 p-[0.5px]"></span>
           </div>
         )}
       </div>
