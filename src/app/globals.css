@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'TT Norms';
+  src: url('./fonts/TTNorms-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #f1f4f9;
+  --foreground: #171717;
+  --accent1: #fd814a;
+  --accent2: #fc5c4c;
+}
+
+/* Scrollbar Track */
+.scroll-container::-webkit-scrollbar {
+  width: 4px; /* Scrollbar width */
+}
+/* Scrollbar Thumb */
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar */
+  border-radius: 6px; /* Roundness of the scrollbar */
+  border: 3px solid #ccc; /* Padding between the scrollbar and the track */
+}
+
+/* Scrollbar Thumb when Hovered */
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darken the scrollbar when hovered */
+}
+
+/* Scrollbar Track */
+.scroll-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the track */
+  border-radius: 6px;
+}
+
+.linear-accent {
+  background-image: linear-gradient(to left, var(--accent1), var(--accent2));
+}

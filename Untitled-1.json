@@ -1,0 +1,179 @@
+{
+  "elapsedMilliseconds": 192,
+  "artObject": {
+    "links": { "search": "http://www.rijksmuseum.nl/api/nl/collection" },
+    "id": "nl-SK-A-1505",
+    "priref": "8456",
+    "objectNumber": "SK-A-1505",
+    "language": "nl",
+    "title": "Een molen aan een poldervaart, bekend als ‘In de maand juli’",
+    "copyrightHolder": null,
+    "webImage": {
+      "guid": "3e83eca2-5306-4d6d-b499-f86091c81d39",
+      "offsetPercentageX": 50,
+      "offsetPercentageY": 50,
+      "width": 1767,
+      "height": 2748,
+      "url": "https://lh3.googleusercontent.com/nfJiRConmXf4QR1bK3-E456qIEp2bYtuemyy3P3t7PonntyGJ8iPzFNKJPhZFCSSmJmj2AHePE4V1xl3BOz2NT8mfbNg=s0"
+    },
+    "colors": [
+      { "percentage": 35, "hex": "#898D7A" },
+      { "percentage": 18, "hex": " #56635B" },
+      { "percentage": 15, "hex": " #4A4A35" },
+      { "percentage": 13, "hex": " #727563" },
+      { "percentage": 7, "hex": " #B4AE91" },
+      { "percentage": 6, "hex": " #776F3A" },
+      { "percentage": 3, "hex": " #29291F" }
+    ],
+    "colorsWithNormalization": [
+      { "originalHex": "#898D7A", "normalizedHex": "#737C84" },
+      { "originalHex": " #56635B", "normalizedHex": "#2F4F4F" },
+      { "originalHex": " #4A4A35", "normalizedHex": "#2F4F4F" },
+      { "originalHex": " #727563", "normalizedHex": "#737C84" },
+      { "originalHex": " #B4AE91", "normalizedHex": "#E0CC91" },
+      { "originalHex": " #776F3A", "normalizedHex": "#367614" },
+      { "originalHex": " #29291F", "normalizedHex": "#000000" }
+    ],
+    "normalizedColors": [
+      { "percentage": 48, "hex": "#696969" },
+      { "percentage": 35, "hex": " #808080" },
+      { "percentage": 7, "hex": " #D2B48C" },
+      { "percentage": 6, "hex": " #808000" },
+      { "percentage": 3, "hex": " #000000" }
+    ],
+    "normalized32Colors": [
+      { "percentage": 48, "hex": "#737C84" },
+      { "percentage": 34, "hex": " #2F4F4F" },
+      { "percentage": 7, "hex": " #E0CC91" },
+      { "percentage": 6, "hex": " #367614" },
+      { "percentage": 3, "hex": " #000000" }
+    ],
+    "materialsThesaurus": [],
+    "techniquesThesaurus": [],
+    "productionPlacesThesaurus": [],
+    "titles": [
+      "Een molen aan een poldervaart, bekend als ‘In de maand juli’",
+      "'In de maand juli', een molen aan een poldervaart"
+    ],
+    "description": "Voorstelling van een windmolen aan een poldervaart in de zomer. De molen wordt weerspiegeld in het water. Rechts loopt een man op de weg naar de molen, links een huis.",
+    "labelText": null,
+    "objectTypes": ["schilderij"],
+    "objectCollection": ["schilderijen"],
+    "makers": [],
+    "principalMakers": [
+      {
+        "name": "Paul Joseph Constantin Gabriël",
+        "unFixedName": "Gabriël, Paul Joseph Constantin",
+        "placeOfBirth": "Amsterdam",
+        "dateOfBirth": "1828",
+        "dateOfBirthPrecision": null,
+        "dateOfDeath": "1903-08-23",
+        "dateOfDeathPrecision": null,
+        "placeOfDeath": "Scheveningen",
+        "occupation": ["prentmaker", "tekenaar"],
+        "roles": ["schilder"],
+        "nationality": null,
+        "biography": null,
+        "productionPlaces": [],
+        "qualification": null,
+        "labelDesc": "Paul Joseph Constantin Gabriël (1828 - 23-aug-1903)"
+      }
+    ],
+    "plaqueDescriptionDutch": "‘Ons land is gekleurd-sappig-vet. (...) ik herhaal het, ons land is niet grijs zelfs niet bij grijs weer, de duinen zijn ook niet grijs’, schreef Constant Gabriël in een brief. In tegenstelling tot veel schilders van de Haagse School schilderde hij graag een mooie zomerdag. Op dit schilderij staan er zelfs twee: het gras, de lucht en de molen worden weerspiegeld in het water. ",
+    "plaqueDescriptionEnglish": "‘Our country is colourful, juicy, fat. (...) I repeat, our country is not dull, not even in dull weather, the dunes are not dull either’, Constant Gabriël wrote in a letter. Unlike many artists of the Hague School, he preferred painting fine summer days. Here there are two: the grass, sky and windmill are all reflected in the water.",
+    "principalMaker": "Paul Joseph Constantin Gabriël",
+    "artistRole": null,
+    "associations": [],
+    "acquisition": {
+      "method": "aankoop",
+      "date": "1889-08-01T00:00:00",
+      "creditLine": null
+    },
+    "exhibitions": [],
+    "materials": ["olieverf", "doek"],
+    "techniques": ["schilderen"],
+    "productionPlaces": [],
+    "dating": {
+      "presentingDate": "ca. 1889",
+      "sortingDate": 1889,
+      "period": 19,
+      "yearEarly": 1889,
+      "yearLate": 1889
+    },
+    "classification": {
+      "iconClassIdentifier": ["25I41", "25H22", "23L31", "47D31"],
+      "iconClassDescription": [
+        "windmill in landscape",
+        "canal",
+        "landscape symbolizing July",
+        "windmill"
+      ],
+      "motifs": [],
+      "events": [],
+      "periods": [],
+      "places": [],
+      "people": [],
+      "objectNumbers": ["SK-A-1505"]
+    },
+    "hasImage": true,
+    "historicalPersons": [],
+    "inscriptions": [],
+    "documentation": [
+      "A. McNeil Kettering, 'Landscape with sails: the windmill in Netherlandish prints', Simiolus 33 (2007/2008), p. 79",
+      "M. Jonkman, 'Tussen binnen en buiten. Plein-air schilderen in de negentiende eeuw', Kunstschrift, 51, (2007) nr. 3, p. 28, afb. 33"
+    ],
+    "catRefRPK": [],
+    "principalOrFirstMaker": "Paul Joseph Constantin Gabriël",
+    "dimensions": [
+      {
+        "unit": "cm",
+        "type": "hoogte",
+        "precision": null,
+        "part": "drager",
+        "value": "102"
+      },
+      {
+        "unit": "cm",
+        "type": "breedte",
+        "precision": null,
+        "part": "drager",
+        "value": "66"
+      },
+      {
+        "unit": "cm",
+        "type": "diepte",
+        "precision": null,
+        "part": "drager",
+        "value": "14"
+      }
+    ],
+    "physicalProperties": [],
+    "physicalMedium": "olieverf op doek",
+    "longTitle": "Een molen aan een poldervaart, bekend als ‘In de maand juli’, Paul Joseph Constantin Gabriël, ca. 1889",
+    "subTitle": "h 102cm × b 66cm × d 14cm",
+    "scLabelLine": "Paul Joseph Constantin Gabriël (1828–1903), olieverf op doek, ca. 1889",
+    "label": {
+      "title": "Een molen aan een poldervaart, bekend als ‘In de maand juli’",
+      "makerLine": "Paul Joseph Constantin Gabriël (1828–1903), olieverf op doek, ca. 1889",
+      "description": "‘Ons land is gekleurd-sappig-vet. (...) ik herhaal het, ons land is niet grijs, zelfs niet bij grijs weer, de duinen zijn ook niet grijs’, schreef Constant Gabriël in een brief. In tegenstelling tot veel schilders van de Haagse School schilderde hij graag een mooie zomerdag. Op dit schilderij staan er zelfs twee: het gras, de lucht en de molen worden weerspiegeld in het water.",
+      "notes": "Multimediatour",
+      "date": "2018-02-07"
+    },
+    "showImage": true,
+    "location": "HG-1.18"
+  },
+  "artObjectPage": {
+    "id": "nl-SK-A-1505",
+    "similarPages": [],
+    "lang": "nl",
+    "objectNumber": "SK-A-1505",
+    "tags": [],
+    "plaqueDescription": "‘Ons land is gekleurd-sappig-vet. (...) ik herhaal het, ons land is niet grijs zelfs niet bij grijs weer, de duinen zijn ook niet grijs’, schreef Constant Gabriël in een brief. In tegenstelling tot veel schilders van de Haagse School schilderde hij graag een mooie zomerdag. Op dit schilderij staan er zelfs twee: het gras, de lucht en de molen worden weerspiegeld in het water. ",
+    "audioFile1": null,
+    "audioFileLabel1": null,
+    "audioFileLabel2": null,
+    "createdOn": "0001-01-01T00:00:00",
+    "updatedOn": "0001-01-01T00:00:00",
+    "adlibOverrides": { "titel": null, "maker": null, "etiketText": null }
+  }
+}
