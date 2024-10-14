@@ -1,6 +1,6 @@
 import { IllustrationType } from '@/types/illustration';
-import Image from 'next/image';
 import React, { useMemo } from 'react';
+import ImageComponent from './ImageComponent';
 
 type Props = {
   illustrations: IllustrationType[];
@@ -24,29 +24,14 @@ const Preview = ({
     >
       <div className="overflow-hidden grid grid-cols-2 gap-1">
         <div className="h-64 relative">
-          <Image
-            className="object-cover"
-            src={illustrations[0].url}
-            alt=""
-            layout="fill"
-          />
+          <ImageComponent src={illustrations[0].url} className="h-full" />
         </div>
         <div className="flex flex-col gap-1">
           <div className="h-32 relative">
-            <Image
-              className="object-cover"
-              src={illustrations[1].url}
-              alt=""
-              layout="fill"
-            />
+            <ImageComponent src={illustrations[1]?.url} className="h-full" />
           </div>
           <div className="h-32 relative">
-            <Image
-              className="object-cover"
-              src={illustrations[2].url}
-              alt=""
-              layout="fill"
-            />
+            <ImageComponent src={illustrations[2]?.url} className="h-full" />
           </div>
         </div>
       </div>

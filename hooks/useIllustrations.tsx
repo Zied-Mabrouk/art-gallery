@@ -1,6 +1,6 @@
 'use client';
-import { IllustrationType } from '@/types/illustration';
-import { useContext, createContext } from 'react';
+import { IllustrationRawType, IllustrationType } from '@/types/illustration';
+import { useContext, createContext, useEffect } from 'react';
 
 interface IllustrationContextProps {
   illustrations: IllustrationType[];
@@ -14,7 +14,30 @@ export const IllustrationContext = createContext<IllustrationContextProps>({
 
 export const useIllustrations = (): IllustrationContextProps => {
   const context = useContext(IllustrationContext);
-
+  const { illustrations, setIllustrations } = context;
+  useEffect(() => {
+    try {
+      if (illustrations.length === 0) {
+        fetch(
+          `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.NEXT_PUBLIC_RIJKSMUSEUM_API_KEY}`
+        )
+          .then(data => data.json())
+          .then(data =>
+            setIllustrations(
+              data.artObjects.map((art: IllustrationRawType) => ({
+                ...art,
+                url: art.webImage.url,
+                headerUrl: art.headerImage.url,
+                width: art.webImage.width,
+                height: art.webImage.height,
+              })) ?? []
+            )
+          );
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }, [illustrations]);
   if (!context) {
     throw new Error('useIllustrations must be used within a DataProvider');
   }

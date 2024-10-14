@@ -1,27 +1,31 @@
-import { IllustrationType } from '@/types/illustration';
 import Image from 'next/image';
-import React, { useCallback } from 'react';
-import { IllustrationContextProps } from '../../hooks/useActiveIllustration';
+import React, { useState } from 'react';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 type Props = {
-  illustration: IllustrationType;
-  setActiveIllustration: IllustrationContextProps['setActiveIllustration'];
+  src: string;
+  onClick?: () => void;
+  className?: string;
 };
 
-const ImageComponent = ({ illustration, setActiveIllustration }: Props) => {
-  const handleClick = useCallback(() => {
-    setActiveIllustration(illustration);
-  }, [illustration, setActiveIllustration]);
+const ImageComponent = ({ src, onClick, className = '' }: Props) => {
+  const [loaded, setLoaded] = useState(false);
   return (
     <div
-      onClick={handleClick}
-      className="relative w-full h-40 rounded-lg overflow-hidden transition-all scale-100 hover:scale-105 cursor-pointer"
+      onClick={onClick}
+      className={`relative w-full rounded-lg overflow-hidden cursor-pointer ${className}`}
     >
+      {!loaded && (
+        <div className="absolute top-0 left-0 w-full h-full z-10 bg-gray-200 flex justify-center items-center">
+          <AiOutlineLoading3Quarters className="animate-spin text-2xl" />
+        </div>
+      )}
       <Image
         className="object-cover"
-        src={illustration.url}
+        src={src}
         alt=""
         layout="fill"
+        onLoad={() => setLoaded(true)}
       />
     </div>
   );
