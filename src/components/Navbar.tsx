@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiCompass } from 'react-icons/fi';
 import { FaLayerGroup } from 'react-icons/fa';
 import { LuPenLine } from 'react-icons/lu';
 import { MdPersonOutline } from 'react-icons/md';
 import { useActiveIllustration } from '../../hooks/useActiveIllustration';
+import Link from 'next/link';
 
 const Navbar = () => {
   const { activeIllustration } = useActiveIllustration();
   const [showOverview, setShowOverview] = useState(false);
+
+  useEffect(() => {
+    if (!activeIllustration) setShowOverview(false);
+  }, [activeIllustration]);
+
   const coefficientCentimeter = 0.0264583333;
   return activeIllustration ? (
     <nav
@@ -74,10 +80,16 @@ const Navbar = () => {
     </nav>
   ) : (
     <nav className="fixed left-0 z-10 -bottom-4 w-full flex rounded-3xl pt-8 pb-12 px-8 bg-white justify-center gap-8 sm:top-0">
-      <FiCompass className="text-accent1 text-2xl cursor-pointer" />
-      <FaLayerGroup className="text-accent1 text-2xl cursor-pointer" />
+      <Link href={'/'}>
+        <FiCompass className="text-accent1 text-2xl cursor-pointer" />
+      </Link>
+      <Link href={'/illustrations'}>
+        <FaLayerGroup className="text-accent1 text-2xl cursor-pointer" />
+      </Link>
       <LuPenLine className="text-accent1 text-2xl cursor-pointer" />
-      <MdPersonOutline className="text-accent1 text-2xl cursor-pointer" />
+      <Link href={'/profile'}>
+        <MdPersonOutline className="text-accent1 text-2xl cursor-pointer" />
+      </Link>
     </nav>
   );
 };

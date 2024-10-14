@@ -5,10 +5,28 @@ import { useIllustrations } from '../../../hooks/useIllustrations';
 import Image from 'next/image';
 import { useActiveIllustration } from '../../../hooks/useActiveIllustration';
 import { IoIosArrowBack } from 'react-icons/io';
+import { GoHeart, GoHeartFill } from 'react-icons/go';
+import { useFavIllustrations } from '../../../hooks/useFavIllustrations';
+import { useCallback, useMemo } from 'react';
 
 const Home = () => {
   const { illustrations } = useIllustrations();
   const { activeIllustration, setActiveIllustration } = useActiveIllustration();
+  const { favIllustrations, addFavIllustration, removeFavIllustration } =
+    useFavIllustrations();
+  const isFav = useMemo(
+    () => favIllustrations.some(ill => activeIllustration?.id === ill.id),
+    [favIllustrations, activeIllustration]
+  );
+
+  const handleAddToFav = useCallback(() => {
+    if (activeIllustration) addFavIllustration(activeIllustration);
+  }, [activeIllustration]);
+
+  const handleRemoveFromFav = useCallback(() => {
+    if (activeIllustration) removeFavIllustration(activeIllustration);
+  }, [activeIllustration]);
+
   return (
     <>
       <div className="m-4 relative h-full">
@@ -16,7 +34,7 @@ const Home = () => {
         <p className="mt-2 mb-4 font-semibold text-gray-500 tracking-widest">
           CURATED GALERIES
         </p>
-        <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 h-[calc(100vh-200px)] scroll-container">
+        <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 h-full max-h-[calc(100vh-200px)] scroll-container">
           {illustrations.length > 0 && (
             <>
               <ImageComponent
@@ -48,6 +66,19 @@ const Home = () => {
             onClick={() => setActiveIllustration(null)}
           >
             <IoIosArrowBack className="text-white text-3xl" />
+          </div>
+          <div className="absolute top-4 right-4 z-20 cursor-pointer">
+            {isFav ? (
+              <GoHeartFill
+                className="text-white text-3xl"
+                onClick={handleRemoveFromFav}
+              />
+            ) : (
+              <GoHeart
+                className="text-white text-3xl"
+                onClick={handleAddToFav}
+              />
+            )}
           </div>
           {activeIllustration && (
             <Image

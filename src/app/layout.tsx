@@ -5,6 +5,7 @@ import { IllustrationRawType, IllustrationType } from '../types/illustration';
 import { IllustrationContext } from '../../hooks/useIllustrations';
 import Navbar from '@/components/Navbar';
 import { ActiveIllustrationContext } from '../../hooks/useActiveIllustration';
+import { FavIllustrationContext } from '../../hooks/useFavIllustrations';
 
 export default function RootLayout({
   children,
@@ -12,30 +13,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [illustrations, setIllustrations] = useState<IllustrationType[]>([]);
+  const [favIllustrations, setFavIllustrations] = useState<IllustrationType[]>(
+    []
+  );
   const [activeIllustration, setActiveIllustration] =
     useState<IllustrationType | null>(null);
 
+  const { removeFavIllustration, addFavIllustration } = useMemo(() => {
+    return {
+      removeFavIllustration: (illustration: IllustrationType) =>
+        setFavIllustrations(prevFavIllustrations =>
+          prevFavIllustrations.filter(ill => illustration.id !== ill.id)
+        ),
+      addFavIllustration: (illustration: IllustrationType) =>
+        setFavIllustrations(prev => [...prev, illustration]),
+    };
+  }, []);
+
   const api = useMemo(() => process.env.NEXT_PUBLIC_RIJKSMUSEUM_API_KEY, []);
   useEffect(() => {
-    fetch(`https://www.rijksmuseum.nl/api/en/collection?key=${api}`)
-      .then(data => data.json())
-      .then(data =>
-        setIllustrations(
-          data.artObjects.map((art: IllustrationRawType) => ({
-            id: art.id,
-            objectNumber: art.objectNumber,
-            title: art.title,
-            hasImage: art.hasImage,
-            principalOrFirstMaker: art.principalOrFirstMaker,
-            longTitle: art.longTitle,
-            url: art.webImage.url,
-            headerUrl: art.headerImage.url,
-            width: art.webImage.width,
-            height: art.webImage.height,
-          })) ?? []
-        )
-      );
-  }, []);
+    if (illustrations.length === 0)
+      fetch(`https://www.rijksmuseum.nl/api/en/collection?key=${api}`)
+        .then(data => data.json())
+        .then(data =>
+          setIllustrations(
+            data.artObjects.map((art: IllustrationRawType) => ({
+              id: art.id,
+              objectNumber: art.objectNumber,
+              title: art.title,
+              hasImage: art.hasImage,
+              principalOrFirstMaker: art.principalOrFirstMaker,
+              longTitle: art.longTitle,
+              url: art.webImage.url,
+              headerUrl: art.headerImage.url,
+              width: art.webImage.width,
+              height: art.webImage.height,
+            })) ?? []
+          )
+        );
+  }, [illustrations]);
 
   const handleChangeIllustration = useCallback(
     (illustration: IllustrationType | null) => {
@@ -67,8 +83,16 @@ export default function RootLayout({
               setActiveIllustration: handleChangeIllustration,
             }}
           >
-            <Navbar />
-            {children}
+            <FavIllustrationContext.Provider
+              value={{
+                favIllustrations,
+                removeFavIllustration,
+                addFavIllustration,
+              }}
+            >
+              <Navbar />
+              {children}
+            </FavIllustrationContext.Provider>
           </ActiveIllustrationContext.Provider>
         </IllustrationContext.Provider>
       </body>

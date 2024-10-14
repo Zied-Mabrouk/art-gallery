@@ -14,6 +14,7 @@ export const IllustrationContext = createContext<IllustrationContextProps>({
 
 export const useIllustrations = (): IllustrationContextProps => {
   const context = useContext(IllustrationContext);
+
   if (!context) {
     throw new Error('useIllustrations must be used within a DataProvider');
   }
