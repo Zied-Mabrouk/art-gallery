@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { RiArrowUpDoubleFill } from 'react-icons/ri';
 import { useSwipeable } from 'react-swipeable';
 import { usePathname } from 'next/navigation';
+import Tooltip from './Tooltip';
 
 const Navbar = () => {
   const { activeIllustration, setActiveIllustration } = useActiveIllustration();
@@ -126,27 +127,37 @@ const Navbar = () => {
     </>
   ) : (
     <nav className="fixed left-0 z-10 -bottom-4 w-full flex rounded-3xl pt-6 pb-8 px-8 bg-white justify-center gap-8">
-      <Link
-        href={'/'}
-        className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
-      >
-        <FiCompass className="text-accent1 text-2xl cursor-pointer" />
-      </Link>
-      <Link
-        href={'/illustrations'}
-        className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
-      >
-        <FaLayerGroup className="text-accent1 text-2xl cursor-pointer" />
-      </Link>
-      <span className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60">
-        <LuPenLine className="text-accent1 text-2xl cursor-pointer" />
-      </span>
-      <Link
-        href={'/profile'}
-        className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
-      >
-        <MdPersonOutline className="text-accent1 text-2xl cursor-pointer" />
-      </Link>
+      <Tooltip label="home">
+        <Link
+          href={'/'}
+          className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+        >
+          <FiCompass className="text-accent1 text-2xl cursor-pointer" />
+        </Link>
+      </Tooltip>
+
+      <Tooltip label="illustrations">
+        <Link
+          href={'/illustrations'}
+          className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+        >
+          <FaLayerGroup className="text-accent1 text-2xl cursor-pointer" />
+        </Link>
+      </Tooltip>
+
+      <Tooltip label="Pen">
+        <div className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60">
+          <LuPenLine className="text-accent1 text-2xl cursor-pointer" />
+        </div>
+      </Tooltip>
+      <Tooltip label="profile">
+        <Link
+          href={'/profile'}
+          className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+        >
+          <MdPersonOutline className="text-accent1 text-2xl cursor-pointer" />
+        </Link>
+      </Tooltip>
     </nav>
   );
 };
