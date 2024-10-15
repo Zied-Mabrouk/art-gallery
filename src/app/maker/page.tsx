@@ -41,7 +41,7 @@ const Maker = () => {
     <div className="m-4 relative h-full">
       <h1 className="text-3xl font-bold font-norms">{maker}</h1>
 
-      <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 h-full max-h-[calc(100vh-250px)] scroll-container">
+      <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 h-full max-h-[calc(100vh-125px)] scroll-container">
         {illustrations.length > 0 && (
           <>
             <IllustrationImage illustration={illustrations[0]} />

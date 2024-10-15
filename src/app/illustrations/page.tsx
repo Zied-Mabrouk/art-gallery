@@ -52,7 +52,7 @@ const Home = () => {
           value={filter}
           onChange={e => setFilter(e.target.value.toLocaleLowerCase())}
         />
-        <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 h-full max-h-[calc(100vh-250px)] scroll-container">
+        <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 h-full max-h-[calc(100vh-125px)] scroll-container">
           {filteredIllustrations.length > 0 && (
             <>
               <IllustrationImage
