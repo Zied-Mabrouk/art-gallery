@@ -3,9 +3,9 @@
 import IllustrationImage from '@/components/IllustrationImage';
 import { IllustrationRawType, IllustrationType } from '@/types/illustration';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
-const Home = () => {
+const Maker = () => {
   const searchParams = useSearchParams();
   const [illustrations, setIllustrations] = useState<IllustrationType[]>([]);
 
@@ -58,4 +58,10 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default function MakerPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Maker />
+    </Suspense>
+  );
+}
