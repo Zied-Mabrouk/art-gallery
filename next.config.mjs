@@ -7,6 +7,19 @@ const nextConfig = {
       {
         hostname: 'lh3.googleusercontent.com',
       },
+      {
+        hostname: 'lh3.ggpht.com',
+      },
+      {
+        hostname: 'lh4.ggpht.com',
+      },
+      {
+        hostname: 'lh5.ggpht.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.ggpht.com',
+      },
     ],
   },
 };

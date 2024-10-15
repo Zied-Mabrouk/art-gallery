@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { FiCompass } from 'react-icons/fi';
-import { FaLayerGroup } from 'react-icons/fa';
-import { LuPenLine } from 'react-icons/lu';
+import { FaLayerGroup, FaPaintBrush } from 'react-icons/fa';
 import { useActiveIllustration } from '../../hooks/useActiveIllustration';
 import Link from 'next/link';
 import { RiArrowUpDoubleFill } from 'react-icons/ri';
@@ -82,12 +81,20 @@ const Navbar = () => {
                 {activeIllustration.title}
               </span>
               <span className="font-semibold text-gray-400 italic tracking-widest mb-2">
-                Artist
+                Maker
               </span>
-              <span className="font-semibold text-black mb-5">
-                {activeIllustration.principalOrFirstMaker}
-              </span>
-              <span className="font-semibold text-gray-400 italic tracking-widest mb-2">
+              <Tooltip label="Check other maker's illustrations">
+                <Link
+                  href={`/maker?maker=${activeIllustration.principalOrFirstMaker.replaceAll(
+                    ' ',
+                    '+'
+                  )}`}
+                  className="font-semibold text-black text-decoration-accent1"
+                >
+                  {activeIllustration.principalOrFirstMaker}
+                </Link>
+              </Tooltip>
+              <span className="font-semibold text-gray-400 italic tracking-widest mb-2 mt-5">
                 Size
               </span>
               <span className="font-semibold text-black mb-5">
@@ -144,10 +151,13 @@ const Navbar = () => {
         </Link>
       </Tooltip>
 
-      <Tooltip label="Pen">
-        <div className="p-2 hover:bg-accent1 group rounded-full hover:bg-opacity-60">
-          <LuPenLine className="text-accent1 text-2xl cursor-pointer group-hover:text-white" />
-        </div>
+      <Tooltip label="Makers">
+        <Link
+          href={'/makers'}
+          className="p-2 hover:bg-accent1 group rounded-full hover:bg-opacity-60"
+        >
+          <FaPaintBrush className="text-accent1 text-2xl cursor-pointer group-hover:text-white" />
+        </Link>
       </Tooltip>
       <Tooltip label="favorites">
         <Link

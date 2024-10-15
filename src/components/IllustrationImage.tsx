@@ -30,7 +30,7 @@ const IllustrationImage = ({ illustration, filter = '' }: Props) => {
 
   return (
     <div
-      className="w-full relative rounded-lg overflow-hidden"
+      className="w-full relative rounded-lg overflow-hidden cursor-pointer"
       onClick={handleClick}
     >
       <ImageComponent

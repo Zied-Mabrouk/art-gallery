@@ -48,3 +48,9 @@
 .linear-accent {
   background-image: linear-gradient(to left, var(--accent1), var(--accent2));
 }
+
+.text-decoration-accent1 {
+  text-decoration: underline;
+  text-decoration-color: var(--accent1);
+  text-decoration-thickness: 2px;
+}

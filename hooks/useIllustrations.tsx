@@ -24,13 +24,15 @@ export const useIllustrations = (): IllustrationContextProps => {
           .then(data => data.json())
           .then(data =>
             setIllustrations(
-              data.artObjects.map((art: IllustrationRawType) => ({
-                ...art,
-                url: art.webImage.url,
-                headerUrl: art.headerImage.url,
-                width: art.webImage.width,
-                height: art.webImage.height,
-              })) ?? []
+              data.artObjects
+                .filter((art: IllustrationRawType) => art.webImage)
+                .map((art: IllustrationRawType) => ({
+                  ...art,
+                  url: art.webImage.url,
+                  headerUrl: art.headerImage.url,
+                  width: art.webImage.width,
+                  height: art.webImage.height,
+                })) ?? []
             )
           );
       }
