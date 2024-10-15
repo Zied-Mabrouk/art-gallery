@@ -2,13 +2,13 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { FiCompass } from 'react-icons/fi';
 import { FaLayerGroup } from 'react-icons/fa';
 import { LuPenLine } from 'react-icons/lu';
-import { MdPersonOutline } from 'react-icons/md';
 import { useActiveIllustration } from '../../hooks/useActiveIllustration';
 import Link from 'next/link';
 import { RiArrowUpDoubleFill } from 'react-icons/ri';
 import { useSwipeable } from 'react-swipeable';
 import { usePathname } from 'next/navigation';
 import Tooltip from './Tooltip';
+import { GoHeart } from 'react-icons/go';
 
 const Navbar = () => {
   const { activeIllustration, setActiveIllustration } = useActiveIllustration();
@@ -130,32 +130,32 @@ const Navbar = () => {
       <Tooltip label="home">
         <Link
           href={'/'}
-          className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+          className="p-2 hover:bg-accent1 group rounded-full hover:bg-opacity-60"
         >
-          <FiCompass className="text-accent1 text-2xl cursor-pointer" />
+          <FiCompass className="text-accent1 text-2xl cursor-pointer group-hover:text-white" />
         </Link>
       </Tooltip>
 
       <Tooltip label="illustrations">
         <Link
           href={'/illustrations'}
-          className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+          className="p-2 hover:bg-accent1 group rounded-full hover:bg-opacity-60"
         >
-          <FaLayerGroup className="text-accent1 text-2xl cursor-pointer" />
+          <FaLayerGroup className="text-accent1 text-2xl cursor-pointer group-hover:text-white" />
         </Link>
       </Tooltip>
 
       <Tooltip label="Pen">
-        <div className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60">
-          <LuPenLine className="text-accent1 text-2xl cursor-pointer" />
+        <div className="p-2 hover:bg-accent1 group rounded-full hover:bg-opacity-60">
+          <LuPenLine className="text-accent1 text-2xl cursor-pointer group-hover:text-white" />
         </div>
       </Tooltip>
-      <Tooltip label="profile">
+      <Tooltip label="favorites">
         <Link
-          href={'/profile'}
-          className="p-2 hover:bg-gray-200 rounded-full hover:bg-opacity-60"
+          href={'/favorites'}
+          className="p-2 hover:bg-accent1 group rounded-full hover:bg-opacity-60"
         >
-          <MdPersonOutline className="text-accent1 text-2xl cursor-pointer" />
+          <GoHeart className="text-accent1 text-2xl cursor-pointer group-hover:text-white" />
         </Link>
       </Tooltip>
     </nav>
