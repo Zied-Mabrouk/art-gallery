@@ -1,6 +1,7 @@
 'use client';
 
 import IllustrationImage from '@/components/IllustrationImage';
+import Loader from '@/components/Loader';
 import { IllustrationRawType, IllustrationType } from '@/types/illustration';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
@@ -60,7 +61,7 @@ const Maker = () => {
 
 export default function MakerPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader loaded={false} />}>
       <Maker />
     </Suspense>
   );
