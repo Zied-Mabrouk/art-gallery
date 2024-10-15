@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div className="p-4 relative h-full">
-      <h1 className="text-3xl font-bold">Boards</h1>
+      <h1 className="text-3xl font-bold font-norms">Boards</h1>
       <p className="mt-2 mb-4 font-bold text-gray-400 text-sm">
         Following galleries to power up your art career
       </p>

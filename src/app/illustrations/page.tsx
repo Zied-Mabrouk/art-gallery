@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <>
       <div className="m-4 relative h-full">
-        <h1 className="text-3xl font-bold">Illustrations</h1>
+        <h1 className="text-3xl font-bold font-norms">Illustrations</h1>
         <p className="mt-2 mb-4 font-semibold text-gray-500 tracking-widest">
           CURATED GALERIES
         </p>
