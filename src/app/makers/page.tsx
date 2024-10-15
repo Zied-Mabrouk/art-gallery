@@ -32,7 +32,7 @@ const Home = () => {
     <div className="m-4 relative h-full">
       <h1 className="text-3xl font-bold font-norms">Makers</h1>
 
-      <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 max-h-[calc(100vh-200px)] scroll-container">
+      <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 max-h-[calc(100vh-140px)] scroll-container">
         <div className="grid grid-cols-2 w-full gap-4 h-full">
           {Object.entries(makers).map(([maker, url], key: number) => (
             <div

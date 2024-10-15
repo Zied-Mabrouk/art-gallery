@@ -10,7 +10,7 @@ const Home = () => {
     <div className="m-4 relative h-full">
       <h1 className="text-3xl font-bold font-norms">Favorite illustrations</h1>
 
-      <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 max-h-[calc(100vh-200px)] scroll-container">
+      <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 max-h-[calc(100lvh-140px)] scroll-container">
         {favIllustrations.length > 0 && (
           <>
             <ImageComponent src={favIllustrations[0].url} className="h-40" />
