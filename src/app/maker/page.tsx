@@ -10,13 +10,15 @@ const Maker = () => {
   const searchParams = useSearchParams();
   const [illustrations, setIllustrations] = useState<IllustrationType[]>([]);
 
-  const maker = searchParams.get('maker')?.replaceAll(' ', '+') ?? '';
+  const maker = searchParams.get('maker') ?? '';
 
   console.log(illustrations);
 
   useEffect(() => {
     fetch(
-      `https://www.rijksmuseum.nl/api/en/collection?key=${process.env.NEXT_PUBLIC_RIJKSMUSEUM_API_KEY}&involvedMaker=${maker}`
+      `https://www.rijksmuseum.nl/api/en/collection?key=${
+        process.env.NEXT_PUBLIC_RIJKSMUSEUM_API_KEY
+      }&involvedMaker=${maker.replaceAll(' ', '+')}`
     )
       .then(data => data.json())
       .then(data => {
@@ -37,10 +39,7 @@ const Maker = () => {
 
   return (
     <div className="m-4 relative h-full">
-      <h1 className="text-3xl font-bold font-norms">Illustrations</h1>
-      <p className="mt-2 mb-4 font-semibold text-gray-500 tracking-widest">
-        CURATED GALERIES
-      </p>
+      <h1 className="text-3xl font-bold font-norms">{maker}</h1>
 
       <div className="flex flex-wrap justify-center gap-4 overflow-auto p-4 h-full max-h-[calc(100vh-250px)] scroll-container">
         {illustrations.length > 0 && (
