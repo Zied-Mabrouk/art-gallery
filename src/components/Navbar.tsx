@@ -28,7 +28,6 @@ const Navbar = () => {
   useEffect(() => {
     closeShowOverview();
     setActiveIllustration(null);
-    console.log('changed');
   }, [router, closeShowOverview, setActiveIllustration]);
 
   const handlers = useSwipeable({
